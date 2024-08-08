@@ -1,13 +1,16 @@
 import * as vscode from 'vscode'
 
 import { BaseModelProvider } from './ai/model-providers/base'
+import { autoOpenCorrespondingFiles } from './auto-open-corresponding-files'
 import { cleanup } from './cleanup'
 import { registerCommands } from './commands'
 import { setContext } from './context'
-import { enableGlobalProxy, enableLogFetch } from './enable-global-proxy'
+import { enableLogFetch, enableSystemProxy } from './enable-system-proxy'
 import { initializeLocalization } from './i18n'
 import { logger } from './logger'
 import { enablePolyfill } from './polyfill'
+import { registerProviders } from './providers'
+import { initAideKeyUsageStatusBar } from './providers/aide-key-usage-statusbar'
 import { redisStorage, stateStorage } from './storage'
 
 export const activate = async (context: vscode.ExtensionContext) => {
@@ -16,13 +19,16 @@ export const activate = async (context: vscode.ExtensionContext) => {
 
     logger.log('"aide" is now active!')
 
-    initializeLocalization()
+    await initializeLocalization()
     setContext(context)
     await enablePolyfill()
-    enableGlobalProxy()
+    await enableSystemProxy()
     isDev && enableLogFetch()
 
-    registerCommands(context)
+    await registerCommands(context)
+    await registerProviders(context)
+    await initAideKeyUsageStatusBar(context)
+    await autoOpenCorrespondingFiles(context)
     await cleanup(context)
   } catch (err) {
     logger.warn('Failed to activate extension', err)
@@ -30,12 +36,15 @@ export const activate = async (context: vscode.ExtensionContext) => {
 }
 
 export const deactivate = () => {
-  // Clear the session history map
+  // clear the session history map
   BaseModelProvider.sessionIdHistoriesMap = {}
 
-  // Clear the state storage
+  // clear the state storage
   stateStorage.clear()
 
-  // Clear the redis storage
+  // clear the redis storage
   redisStorage.clear()
+
+  // destroy the logger
+  logger.destroy()
 }

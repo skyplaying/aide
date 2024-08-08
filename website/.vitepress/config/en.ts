@@ -8,7 +8,7 @@ const pkg = require('../../../package.json')
 export const en = defineConfig({
   lang: 'en-US',
   description:
-    'Mastering Any Code In VSCode: One-click commenting and language conversion. 💪',
+    'Conquer Any Code in VSCode: One-Click Comments, Conversions, UI-to-Code, and AI Batch Processing! 💪',
   themeConfig: {
     footer: {
       message: 'Released under the MIT License.',
@@ -61,6 +61,10 @@ function sidebar(): DefaultTheme.Sidebar {
           { text: 'Introduction', link: '/' },
           { text: 'Installation', link: '/installation' },
           {
+            text: 'How to Configure OpenAI Key',
+            link: '/how-to-configure-openai-key'
+          },
+          {
             text: 'Customize Shortcuts',
             link: '/customize-shortcuts'
           },
@@ -89,6 +93,10 @@ function sidebar(): DefaultTheme.Sidebar {
             link: '/smart-paste'
           },
           {
+            text: 'AI Batch Processor',
+            link: '/batch-processor'
+          },
+          {
             text: 'Copy Multiple Files As Prompt',
             link: '/copy-as-prompt'
           },
@@ -112,6 +120,14 @@ function sidebar(): DefaultTheme.Sidebar {
           {
             text: 'aide.openaiBaseUrl',
             link: '/openai-base-url'
+          },
+          {
+            text: 'aide.apiConcurrency',
+            link: '/api-concurrency'
+          },
+          {
+            text: 'aide.useSystemProxy',
+            link: '/use-system-proxy'
           },
           {
             text: 'aide.codeViewerHelperPrompt',
@@ -142,6 +158,10 @@ function sidebar(): DefaultTheme.Sidebar {
           {
             text: 'aide.aiCommandCopyBeforeRun',
             link: '/ai-command-copy-before-run'
+          },
+          {
+            text: 'aide.aiCommandAutoRun',
+            link: '/ai-command-auto-run'
           }
         ]
       },

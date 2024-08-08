@@ -59,6 +59,10 @@ const configKey = {
     ...pkgConfig['aide.aiCommandCopyBeforeRun'],
     type: 'boolean'
   },
+  aiCommandAutoRun: {
+    ...pkgConfig['aide.aiCommandAutoRun'],
+    type: 'boolean'
+  },
   autoRememberConvertLanguagePairs: {
     ...pkgConfig['aide.autoRememberConvertLanguagePairs'],
     type: 'boolean'
@@ -75,6 +79,14 @@ const configKey = {
   codeViewerHelperPrompt: {
     ...pkgConfig['aide.codeViewerHelperPrompt'],
     type: 'string'
+  },
+  useSystemProxy: {
+    ...pkgConfig['aide.useSystemProxy'],
+    type: 'boolean'
+  },
+  apiConcurrency: {
+    ...pkgConfig['aide.apiConcurrency'],
+    type: 'number'
   },
   openaiKey: {
     ...pkgConfig['aide.openaiKey'],

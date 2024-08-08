@@ -1,5 +1,56 @@
 # Changelog
 
+## [1.18.0](https://github.com/nicepkg/aide/compare/aide-v1.17.3...aide-v1.18.0) (2024-08-08)
+
+
+### Features
+
+* support query Aide key usage info when click vscode statusbar aide item ([b580fcd](https://github.com/nicepkg/aide/commit/b580fcd2377a6022fc7545562065a485762b5988))
+
+
+### Bug Fixes
+
+* fix windows endline bug and code viewer helper file ext incorrect bug ([43a8049](https://github.com/nicepkg/aide/commit/43a8049e4c091c378b8445ff61a067c34e85f1e2))
+
+## [1.17.3](https://github.com/nicepkg/aide/compare/aide-v1.17.2...aide-v1.17.3) (2024-08-06)
+
+
+### Bug Fixes
+
+* fix batch processor do not create file on windows and smart-paste incorrect position bug ([8bb7949](https://github.com/nicepkg/aide/commit/8bb7949203b90e42be11cb04e4caa3fd09f3abd5))
+
+## [1.17.2](https://github.com/nicepkg/aide/compare/aide-v1.17.1...aide-v1.17.2) (2024-08-04)
+
+
+### Bug Fixes
+
+* fix deps version ([55d55e8](https://github.com/nicepkg/aide/commit/55d55e83f69b249c0fb126e2e4c8868bb91e3c48))
+* fix vscode 1.92.0 fetch not working ([80f8c58](https://github.com/nicepkg/aide/commit/80f8c58da437a9ecdba062f91e6663c3d0d8c12a))
+
+## [1.17.1](https://github.com/nicepkg/aide/compare/aide-v1.17.0...aide-v1.17.1) (2024-07-31)
+
+
+### Bug Fixes
+
+* fix cancel batch-processor bug and update docs ([24a5443](https://github.com/nicepkg/aide/commit/24a544384bc90e23c07b1351bbece81591110c47))
+
+## [1.17.0](https://github.com/nicepkg/aide/compare/aide-v1.16.0...aide-v1.17.0) (2024-07-31)
+
+
+### Features
+
+* add batch-processor feature ([b351230](https://github.com/nicepkg/aide/commit/b351230471d0e0383c9e40b72205f340f1b44785))
+* add diff for tmp file ([dcb2438](https://github.com/nicepkg/aide/commit/dcb243875c010f2cab0bd2d061b54340ee693e05))
+* optimize smart-paste prompt and add actions for tmp file ([9a57c03](https://github.com/nicepkg/aide/commit/9a57c038a1b1c1ebfa680670e3a00e81d5458129))
+
+## [1.16.0](https://github.com/nicepkg/aide/compare/aide-v1.15.1...aide-v1.16.0) (2024-07-26)
+
+
+### Features
+
+* add aide.useSystemProxy and aide.aiCommandAutoRun configuration and enhance languageId select ([2a3b4ed](https://github.com/nicepkg/aide/commit/2a3b4edf1181201181cd6d636f40f81662929b86))
+* output logs to vscode output channel ([94c549a](https://github.com/nicepkg/aide/commit/94c549a2e92f1884ca26f65e0ec79196dd522ef3))
+
 ## [1.15.1](https://github.com/nicepkg/aide/compare/aide-v1.15.0...aide-v1.15.1) (2024-07-25)
 
 

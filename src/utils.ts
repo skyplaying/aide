@@ -1,6 +1,11 @@
 import * as vscode from 'vscode'
 
-import { languageIdExtMap } from './constants'
+import {
+  languageExtIdMap,
+  languageIdExtMap,
+  languageIdExts,
+  languageIds
+} from './constants'
 import { t } from './i18n'
 import { logger } from './logger'
 
@@ -45,15 +50,33 @@ export const commandErrorCatcher = <T extends (...args: any[]) => any>(
     } catch (err) {
       const errMsg = getErrorMsg(err)
       // skip abort error
-      if (errMsg === 'AbortError') return
+      if (['AbortError', 'Aborted'].includes(errMsg)) return
 
       logger.warn('commandErrorCatcher', err)
       vscode.window.showErrorMessage(getErrorMsg(err))
     }
   }) as T
 
-export const getLanguageIdExt = (languageId: string): string =>
-  languageIdExtMap[languageId as keyof typeof languageIdExtMap]?.[0] || ''
+export const getLanguageIdExt = (languageIdORExt: string): string => {
+  if (languageIdExts.includes(languageIdORExt)) return languageIdORExt
+
+  return (
+    languageIdExtMap[languageIdORExt as keyof typeof languageIdExtMap]?.[0] ||
+    ''
+  )
+}
+
+export const getLanguageId = (languageIdORExt: string): string => {
+  if (languageIds.includes(languageIdORExt)) return languageIdORExt
+  if (languageIdExts.includes(languageIdORExt)) {
+    return (
+      languageExtIdMap[languageIdORExt as keyof typeof languageExtIdMap] ||
+      languageIdORExt
+    )
+  }
+
+  return languageIdORExt
+}
 
 export const getCurrentWorkspaceFolderEditor = <T extends boolean = true>(
   throwErrorWhenNotFound: T = true as T
@@ -99,6 +122,11 @@ export const getCurrentWorkspaceFolderEditor = <T extends boolean = true>(
 //   }
 // }
 
+export const formatNumber = (num: number, fixed: number): string => {
+  const numString = num.toFixed(fixed)
+  return numString.replace(/\.?0+$/, '')
+}
+
 export const removeCodeBlockSyntax = (str: string): string => {
   if (!str) return ''
   return str
@@ -123,4 +151,70 @@ export const tryParseJSON = (str: string, returnOriginal = false) => {
   } catch (err) {
     return returnOriginal ? str : null
   }
+}
+
+export const toPlatformPath = (path: string): string => {
+  if (process.platform === 'win32') return path.replace(/\//g, '\\')
+
+  return path.replace(/\\/g, '/')
+}
+
+export const sleep = (ms: number): Promise<void> =>
+  new Promise(resolve => setTimeout(resolve, ms))
+
+export const normalizeLineEndings = (text?: string): string => {
+  if (!text) return ''
+
+  const activeEditor = vscode.window.activeTextEditor
+  if (!activeEditor) return text
+
+  const { eol } = activeEditor.document
+
+  if (eol === vscode.EndOfLine.LF) return text.replace(/\r\n/g, '\n')
+  if (eol === vscode.EndOfLine.CRLF) return text.replace(/\n/g, '\r\n')
+
+  return text
+}
+
+type QuickPickItemType = string | vscode.QuickPickItem
+
+export interface QuickPickOptions {
+  items: QuickPickItemType[]
+  placeholder: string
+  customOption?: string
+}
+
+export const showQuickPickWithCustomInput = async (
+  options: QuickPickOptions
+): Promise<string> => {
+  const quickPick = vscode.window.createQuickPick()
+
+  quickPick.items = options.items.map(item =>
+    typeof item === 'string' ? { label: item } : item
+  )
+
+  quickPick.placeholder = options.placeholder
+
+  if (options.customOption) {
+    quickPick.items = [{ label: options.customOption }, ...quickPick.items]
+  }
+
+  return new Promise<string>(resolve => {
+    quickPick.onDidAccept(() => {
+      const selection = quickPick.selectedItems[0]
+      if (selection) {
+        resolve(selection.label)
+      } else {
+        resolve(quickPick.value)
+      }
+      quickPick.hide()
+    })
+
+    quickPick.onDidHide(() => {
+      resolve('')
+      quickPick.dispose()
+    })
+
+    quickPick.show()
+  })
 }

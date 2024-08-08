@@ -1,13 +1,8 @@
 {
   "i18n-ally.pathMatcher": "package.nls.{locale}.json",
   "i18n-ally.keystyle": "flat",
-  "i18n-ally.localesPaths": [
-    "."
-  ],
-  "i18n-ally.enabledFrameworks": [
-    "vscode",
-    "react"
-  ],
+  "i18n-ally.localesPaths": ["."],
+  "i18n-ally.enabledFrameworks": ["vscode", "react"],
   "i18n-ally.dirStructure": "file",
   // Enable eslint for all supported languages
   "eslint.validate": [
@@ -52,7 +47,9 @@
     "titleBar.activeForeground": "#F8FCFD"
   },
   "cSpell.words": [
+    "allowtransparency",
     "autoplay",
+    "bilibili",
     "Codegee",
     "Codeium",
     "commitlint",
@@ -68,6 +65,7 @@
     "langchain",
     "Nicepkg",
     "nodir",
+    "Nolebase",
     "Ollama",
     "openai",
     "Pipfile",
