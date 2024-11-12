@@ -8,7 +8,7 @@ const pkg = require('../../../package.json')
 export const en = defineConfig({
   lang: 'en-US',
   description:
-    'Mastering Any Code In VSCode: One-click commenting and language conversion. 💪',
+    'Conquer Any Code in VSCode: One-Click Comments, Conversions, UI-to-Code, and AI Batch Processing! 💪',
   themeConfig: {
     footer: {
       message: 'Released under the MIT License.',
@@ -61,6 +61,10 @@ function sidebar(): DefaultTheme.Sidebar {
           { text: 'Introduction', link: '/' },
           { text: 'Installation', link: '/installation' },
           {
+            text: 'How to Configure OpenAI Key',
+            link: '/how-to-configure-openai-key'
+          },
+          {
             text: 'Customize Shortcuts',
             link: '/customize-shortcuts'
           },
@@ -85,8 +89,16 @@ function sidebar(): DefaultTheme.Sidebar {
             link: '/code-convert'
           },
           {
+            text: 'Expert Code Enhancer',
+            link: '/expert-code-enhancer'
+          },
+          {
             text: 'Smart Paste',
             link: '/smart-paste'
+          },
+          {
+            text: 'AI Batch Processor',
+            link: '/batch-processor'
           },
           {
             text: 'Copy Multiple Files As Prompt',
@@ -114,6 +126,14 @@ function sidebar(): DefaultTheme.Sidebar {
             link: '/openai-base-url'
           },
           {
+            text: 'aide.apiConcurrency',
+            link: '/api-concurrency'
+          },
+          {
+            text: 'aide.useSystemProxy',
+            link: '/use-system-proxy'
+          },
+          {
             text: 'aide.codeViewerHelperPrompt',
             link: '/code-viewer-helper-prompt'
           },
@@ -124,6 +144,10 @@ function sidebar(): DefaultTheme.Sidebar {
           {
             text: 'aide.autoRememberConvertLanguagePairs',
             link: '/auto-remember-convert-language-pairs'
+          },
+          {
+            text: 'aide.expertCodeEnhancerPromptList',
+            link: '/expert-code-enhancer-prompt-list'
           },
           {
             text: 'aide.readClipboardImage',
@@ -142,6 +166,10 @@ function sidebar(): DefaultTheme.Sidebar {
           {
             text: 'aide.aiCommandCopyBeforeRun',
             link: '/ai-command-copy-before-run'
+          },
+          {
+            text: 'aide.aiCommandAutoRun',
+            link: '/ai-command-auto-run'
           }
         ]
       },

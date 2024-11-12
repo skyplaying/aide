@@ -4,9 +4,14 @@ Command Name: `aide.copyAsPrompt`
 
 Copies the content of the selected files to the clipboard and formats it as AI interaction prompts.
 
+**Scenarios:**
+
+- You want to copy the code from multiple files in one click to third-party websites like [chatgpt.com](https://chatgpt.com) or [poe.com](https://poe.com).
+- You wish to copy the entire project’s code in one click, rather than copying files one by one.
+
 **Usage:**
 
-- Select files or folders in the explorer.
+- Select files or folders in the explorer. (Multi-select: hold `Ctrl` or `Cmd` and click on files or folders)
 - Right-click and select `✨ Aide: Copy as AI Prompt`.
 
 <Video src="/videos/aide-copy-as-prompt.mp4"/>

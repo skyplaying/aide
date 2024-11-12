@@ -85,6 +85,10 @@ function sidebar(): DefaultTheme.Sidebar {
             link: '/installation'
           },
           {
+            text: '如何配置 OpenAI Key',
+            link: '/how-to-configure-openai-key'
+          },
+          {
             text: '自定义快捷键',
             link: '/customize-shortcuts'
           },
@@ -92,7 +96,8 @@ function sidebar(): DefaultTheme.Sidebar {
             text: '自定义配置',
             link: '/customize-configuration'
           },
-          { text: '常见问题解答', link: '/faq' }
+          { text: '常见问题解答', link: '/faq' },
+          { text: '社区', link: '/community' }
         ]
       },
       {
@@ -109,8 +114,16 @@ function sidebar(): DefaultTheme.Sidebar {
             link: '/code-convert'
           },
           {
+            text: '让大师帮你改代码',
+            link: '/expert-code-enhancer'
+          },
+          {
             text: '智能粘贴',
             link: '/smart-paste'
+          },
+          {
+            text: 'AI 批量处理文件',
+            link: '/batch-processor'
           },
           {
             text: '批量复制文件为 AI 提示词',
@@ -144,6 +157,14 @@ function sidebar(): DefaultTheme.Sidebar {
             link: '/openai-base-url'
           },
           {
+            text: 'aide.apiConcurrency',
+            link: '/api-concurrency'
+          },
+          {
+            text: 'aide.useSystemProxy',
+            link: '/use-system-proxy'
+          },
+          {
             text: 'aide.codeViewerHelperPrompt',
             link: '/code-viewer-helper-prompt'
           },
@@ -154,6 +175,10 @@ function sidebar(): DefaultTheme.Sidebar {
           {
             text: 'aide.autoRememberConvertLanguagePairs',
             link: '/auto-remember-convert-language-pairs'
+          },
+          {
+            text: 'aide.expertCodeEnhancerPromptList',
+            link: '/expert-code-enhancer-prompt-list'
           },
           {
             text: 'aide.readClipboardImage',
@@ -175,6 +200,10 @@ function sidebar(): DefaultTheme.Sidebar {
           {
             text: 'aide.aiCommandCopyBeforeRun',
             link: '/ai-command-copy-before-run'
+          },
+          {
+            text: 'aide.aiCommandAutoRun',
+            link: '/ai-command-auto-run'
           }
         ]
       },
@@ -183,6 +212,7 @@ function sidebar(): DefaultTheme.Sidebar {
         collapsed: true,
         base: '/zh/guide/use-another-llm',
         items: [
+          { text: 'Aide 模型聚合(便宜)', link: '/aide-models' },
           { text: 'Anthropic', link: '/anthropic' },
           { text: 'Azure', link: '/azure' },
           { text: 'DeepSeek', link: '/deepseek' },

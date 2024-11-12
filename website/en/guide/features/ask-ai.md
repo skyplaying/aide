@@ -4,9 +4,14 @@ Command Name: `aide.askAI`
 
 Prepare and execute a custom AI command based on the selected file and user input.
 
+**Scenarios:**
+
+- ==Aide== itself does not provide AI Q&A services, but you can achieve this through custom AI commands.
+- If you use third-party AI terminal tools, such as [`aider`](https://github.com/paul-gauthier/aider), you can configure commands for quick access to these tools.
+
 **Usage:**
 
-- Select a file or folder in the explorer.
+- Select a file or folder in the explorer. (Multi-select: hold `Ctrl` or `Cmd` and click on files or folders)
 - Right-click and select `✨ Aide: Ask AI`.
 - Follow the prompt to enter your question.
 
@@ -17,6 +22,8 @@ Prepare and execute a custom AI command based on the selected file and user inpu
 - You can customize the AI command by modifying the [`aide.aiCommand`](../configuration/ai-command.md) configuration.
 
 - You can control whether to copy the AI command before execution by modifying the [`aide.aiCommandCopyBeforeRun`](../configuration/ai-command-copy-before-run.md) configuration.
+
+- You can control whether to automatically run the AI command by modifying the [`aide.aiCommandAutoRun`](../configuration/ai-command-auto-run.md) configuration.
 
 - You can ignore specific files or folders by modifying the [`aide.ignorePatterns`](../configuration/ignore-patterns.md) configuration.
 

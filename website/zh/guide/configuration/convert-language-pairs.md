@@ -1,6 +1,6 @@
 # aide.convertLanguagePairs
 
-此配置允许你自定义代码转换的语言映射。映射应采用 `sourceLanguage: targetLanguage` 的形式。
+此配置允许你自定义==代码转换的语言映射==。映射应采用 `sourceLanguage: targetLanguage` 的形式。
 
 默认情况下，编辑器会在当前项目 `.vscode/settings.json` 文件中记住你的语言映射，位于 `aide.convertLanguagePairs` 配置下。你可以在这里修改或添加新的语言映射，例如：
 
@@ -19,7 +19,7 @@
 }
 ```
 
-你的语言名称应遵循 [VSCode 语言标识符](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers)，以下是一些你可能需要的 VSCode 语言标识符：
+你的语言名称应遵循 [==VSCode 语言标识符==](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers)，以下是一些你可能需要的 VSCode 语言标识符：
 
 ::: details VSCode 语言标识符列表
 
@@ -96,6 +96,15 @@
 
 :::
 
+::: warning 注意
+
+==VSCode== 有两处 `settings.json` 文件，一处是全局设置，存放于用户文件夹。另一处是项目设置，存放于项目文件夹 `.vscode/settings.json` 文件中。
+
+当前配置默认记忆存储在你的项目文件夹下的 `.vscode/settings.json` 文件，注意要改对位置。
+
+:::
+
 ::: tip 提示
 如果在列表中找不到你的语言，你可以随意自定义你的语言标识符。但是这意味着你可能无法获得语法高亮，仅此而已。
+
 :::

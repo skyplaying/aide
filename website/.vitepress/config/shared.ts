@@ -1,6 +1,9 @@
+import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
+import Mark from 'markdown-it-mark'
 import Unocss from 'unocss/vite'
 import { defineConfig } from 'vitepress'
 
+import { bilibiliSvg } from './svg'
 import { search as zhSearch } from './zh'
 
 export const shared = defineConfig({
@@ -15,7 +18,11 @@ export const shared = defineConfig({
   metaChunk: true,
 
   markdown: {
-    lineNumbers: false
+    lineNumbers: false,
+    config(md) {
+      md.use(InlineLinkPreviewElementTransform)
+      md.use(Mark)
+    }
   },
 
   sitemap: {
@@ -35,7 +42,7 @@ export const shared = defineConfig({
       'meta',
       {
         property: 'og:title',
-        content: 'Aide | Mastering Any Code In VSCode'
+        content: 'Aide | Conquer Any Code in VSCode'
       }
     ],
     ['meta', { property: 'og:site_name', content: 'Aide' }],
@@ -52,7 +59,23 @@ export const shared = defineConfig({
   themeConfig: {
     logo: { src: '/logo-mini.svg', width: 24, height: 24 },
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/nicepkg/aide' }],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/nicepkg/aide' },
+      {
+        icon: 'twitter',
+        link: 'https://x.com/jinmingyang666'
+      },
+      {
+        icon: 'youtube',
+        link: 'https://www.youtube.com/@jinmingyang666'
+      },
+      {
+        icon: {
+          svg: bilibiliSvg
+        },
+        link: 'https://space.bilibili.com/83540912'
+      }
+    ],
 
     // search: {
     //   provider: 'algolia',
@@ -76,6 +99,12 @@ export const shared = defineConfig({
       Unocss({
         configFile: '../../uno.config.ts'
       })
-    ]
+    ],
+    optimizeDeps: {
+      exclude: ['@nolebase/vitepress-plugin-inline-link-preview/markdown-it']
+    },
+    ssr: {
+      noExternal: ['@nolebase/*']
+    }
   }
 })
